@@ -1,0 +1,67 @@
+Codebase/1-1_dnn_kcv_normalize_after_split_usda_data.ipynb
+	- file where the R2 and rmse values for corn were generated for the presentation
+	
+Codebase/2_dnn_separate_output_kcv_usda_data .ipynb
+	- very cool graph of model generated here
+		
+ 	
+add new metric 
+standard error performance
+samir trabelsi
+
+
+
+Values when using entire dataset
+R^2: 0.9458
+Mean Squared Error:  0.4012
+Mean Absolute Error:  0.4986
+Min Absolute Error:  0.005745
+Max Absolute Error:  1.458
+
+Values when using entire dataset - learning rate 0.0006
+R^2: 0.9768
+Mean Squared Error:  0.1706
+Mean Absolute Error:  0.3078
+Min Absolute Error:  0.004824
+Max Absolute Error:  1.519
+
+Values when using entire dataset - learning rate 0.0059
+R^2: 0.9792
+Mean Squared Error:  0.1515
+Mean Absolute Error:  0.2844
+Min Absolute Error:  0.003683
+Max Absolute Error:  1.58
+
+Values when using entire dataset - 0.00591
+R^2: 0.9799
+Mean Squared Error:  0.145
+Mean Absolute Error:  0.2816
+Min Absolute Error:  0.0006596
+Max Absolute Error:  1.589
+
+Values when using entire dataset - LR 0.00591 EPOCH 99
+R^2: 0.9804
+Mean Squared Error:  0.1435
+Mean Absolute Error:  0.2779
+Min Absolute Error:  0.0001441
+Max Absolute Error:  1.588
+
+Values when using entire dataset - LR 0.00591 EPOCH 99 - final layer sigmoid
+R^2: 0.9827
+Mean Squared Error:  0.1127
+Mean Absolute Error:  0.188
+Min Absolute Error:  0.0005375
+Max Absolute Error:  2.079
+
+new wheat dataset containing type column LR = 0.00062 EPOCH = 180
+R^2: 0.9901
+Mean Squared Error:  0.13
+Mean Absolute Error:  0.2622
+Min Absolute Error:  0.003938980102539347
+Max Absolute Error:  1.2503290939331038
+new wheat dataset containing type column and phase/attn LR = 0.00062 EPOCH = 180
+R^2: 0.9927
+Mean Squared Error:  0.09561
+Mean Absolute Error:  0.2382
+Min Absolute Error:  0.005610275268555398
+Max Absolute Error:  1.2028444671630858
