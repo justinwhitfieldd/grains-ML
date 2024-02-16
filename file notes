@@ -67,3 +67,10 @@ Mean Squared Error:  0.1038
 Mean Absolute Error:  0.2416
 Min Absolute Error:  0.02640426635742088
 Max Absolute Error:  0.7429405212402358
+
+
+Run support vector machine on south dakota, as well as random forest. Add kfold to random forest
+
+run DLL model on entire wheat dataset as well to compare with random forest and support vector machine models
+
+mention k fold validation in paper, add the ratio of dataset used and number of k folds. Mention that metrics are the average values. Improve captions on figures. add that everything is predicted towards moisture content.
