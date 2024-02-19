@@ -69,8 +69,63 @@ Min Absolute Error:  0.02640426635742088
 Max Absolute Error:  0.7429405212402358
 
 
-Run support vector machine on south dakota, as well as random forest. Add kfold to random forest
+Run support vector machine on south dakota, as well as random forest. Add kfold to random forest - Done
 
 run DLL model on entire wheat dataset as well to compare with random forest and support vector machine models
 
 mention k fold validation in paper, add the ratio of dataset used and number of k folds. Mention that metrics are the average values. Improve captions on figures. add that everything is predicted towards moisture content.
+
+R^2: 0.9886
+Mean Squared Error:  0.1487
+Mean Absolute Error:  0.292
+Min Absolute Error:  0.004633255004883097
+Max Absolute Error:  1.3250600051879875
+190 epoch, LR: 0.0006105, 3 dense 49 neurono layers, sigmoid,'Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+
+R^2: 0.9914
+Mean Squared Error:  0.1127
+Mean Absolute Error:  0.2593
+Min Absolute Error:  0.000991172790527628
+Max Absolute Error:  1.1374970626831047
+180 epoch, LR: 0.0006105, 3 dense 49 neurono layers, sigmoid,'Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+
+R^2: 0.9884
+Mean Squared Error:  0.1515
+Mean Absolute Error:  0.3
+Min Absolute Error:  0.001513137817383381
+Max Absolute Error:  1.0158342361450199
+Epoch: 190, LR: 0.0006105, 3 dense 36 layers, sigmoid
+df_features = df[['Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+                    ]]
+R^2: 0.9905
+Mean Squared Error:  0.1246
+Mean Absolute Error:  0.2859
+Min Absolute Error:  0.0018354797363286934
+Max Absolute Error:  0.8799495697021484
+Epoch: 185, LR: 0.0006105, 3 dense 36 layers, sigmoid
+df_features = df[['Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+                    ]]
