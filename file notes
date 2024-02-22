@@ -129,3 +129,15 @@ df_features = df[['Freq',
                     'Permittivity_imaginary',
                     'Type',
                     ]]
+
+New best hyperparameters: {'learning_rate': 0.00015, 'batch_size': 8, 'neurons': 89, 'activation': 'relu', 'epochs': 170, 'loss': 0.0008250479004345834}
+New best hyperparameters: {'learning_rate': 0.00025, 'batch_size': 8, 'neurons': 89, 'activation': 'relu', 'epochs': 165, 'loss': 0.0005766170797869563}
+2:29 normal
+
+
+single target dnn with multi threading, random num 39
+R^2: 0.9976
+Mean Squared Error:  0.03436
+Mean Absolute Error:  0.1494
+Min Absolute Error:  0.000415802001953125
+Max Absolute Error:  0.45629322052001875
