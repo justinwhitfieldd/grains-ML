@@ -141,3 +141,27 @@ Mean Squared Error:  0.03436
 Mean Absolute Error:  0.1494
 Min Absolute Error:  0.000415802001953125
 Max Absolute Error:  0.45629322052001875
+
+Max Abs ERror:  0.9091627655029292
+{'learning_rate': 0.0009, 'batch_size': 8, 'neurons': 89, 'activation': None, 'epochs': 170, 'loss': 5.551211870624684e-05}
+
+R^2: 0.9975
+Mean Squared Error:  0.03545
+Mean Absolute Error:  0.1424
+Min Absolute Error:  0.000263214111328125
+Max Absolute Error:  0.7668286514282219
+R^2: 0.9949
+Mean Squared Error:  0.06634
+Mean Absolute Error:  0.1895
+Min Absolute Error:  0.0016549682617181816
+Max Absolute Error:  0.8069027709960945
+
+R^2: 0.9960
+Mean Squared Error:  0.05221
+Mean Absolute Error:  0.1731
+Min Absolute Error:  0.00021518707275447468
+Max Absolute Error:  0.6590901947021486
+10 batch
+89 neuron
+170 epoch
+0.00091 LR
