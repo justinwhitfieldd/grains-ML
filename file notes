@@ -151,3 +151,7 @@ Mean Absolute Error:  0.06327
 Min Absolute Error:  0.0005446624755869323
 Max Absolute Error:  0.40733703613281236
 ====================================
+
+train model for bulk density, 
+train for single output(bd) and for two output (m% and bd)
+Look into training classification model for grain type and variety
