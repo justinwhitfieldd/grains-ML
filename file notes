@@ -11,34 +11,6 @@ samir trabelsi
 
 
 
-Values when using entire dataset
-R^2: 0.9458
-Mean Squared Error:  0.4012
-Mean Absolute Error:  0.4986
-Min Absolute Error:  0.005745
-Max Absolute Error:  1.458
-
-Values when using entire dataset - learning rate 0.0006
-R^2: 0.9768
-Mean Squared Error:  0.1706
-Mean Absolute Error:  0.3078
-Min Absolute Error:  0.004824
-Max Absolute Error:  1.519
-
-Values when using entire dataset - learning rate 0.0059
-R^2: 0.9792
-Mean Squared Error:  0.1515
-Mean Absolute Error:  0.2844
-Min Absolute Error:  0.003683
-Max Absolute Error:  1.58
-
-Values when using entire dataset - 0.00591
-R^2: 0.9799
-Mean Squared Error:  0.145
-Mean Absolute Error:  0.2816
-Min Absolute Error:  0.0006596
-Max Absolute Error:  1.589
-
 Values when using entire dataset - LR 0.00591 EPOCH 99
 R^2: 0.9804
 Mean Squared Error:  0.1435
@@ -165,3 +137,17 @@ Max Absolute Error:  0.6590901947021486
 89 neuron
 170 epoch
 0.00091 LR
+==========================================================
+(Entire wheat dataset, single target)
+epoch:190
+LR: 0.00091
+model: layers.Dense(109, input_shape=(6,), activation='relu',),
+    layers.Dense(109, activation='relu', ),
+    layers.Dense(109, activation='relu',),
+    layers.Dense(1, activation='linear')
+R^2: 0.9993
+Mean Squared Error:  0.008625
+Mean Absolute Error:  0.06327
+Min Absolute Error:  0.0005446624755869323
+Max Absolute Error:  0.40733703613281236
+====================================
