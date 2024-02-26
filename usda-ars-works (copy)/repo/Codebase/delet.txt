@@ -1,0 +1,252 @@
+GRAIN_TYPE = 'WheatAdded_Type'
+#GRAIN_TYPE = 'newWheatData'
+#GRAIN_TYPE = 'CornAdded_Type'
+#GRAIN_TYPE = 'cleaned_data'
+# GRAIN_TYPE = 'Oats'
+
+# GRAIN_TYPE = 'Barley'
+# GRAIN_TYPE = 'Sorghum'
+# GRAIN_TYPE = 'Soybeans'
+# GRAIN_TYPE = 'Corn'
+
+FILENAME_BEST_MODEL = 'Best models/target_2/hybrid_models/' + GRAIN_TYPE + '_t2_kcv_dnn_mc.h5'
+#Import libraries
+import requests
+import pandas as pd
+
+
+#Data visualization
+import seaborn as sn
+import matplotlib.pyplot as plt
+import random
+#Data Manipulation
+import pandas as pd
+import numpy as np
+
+# Machine Learning
+import tensorflow as tf
+from tensorflow.keras.models import Model, Sequential
+from tensorflow.keras.layers import Dense, Input, Activation, BatchNormalization
+from tensorflow.keras.utils import plot_model
+from sklearn.model_selection import train_test_split, KFold
+np.random.seed(39)
+random.seed(39)
+tf.random.set_seed(39)
+print(tf.__version__)
+def calculate_r_squared(y_true, y_pred):
+   corr_matrix = np.corrcoef(y_true, y_pred)
+   corr = corr_matrix[0,1]
+   R_sq = corr**2
+   return R_sq
+
+def plot_loss_curve(history, epoch_size):
+    loss_train = history.history['loss']
+    loss_val = history.history['val_loss']
+    epochs = range(0,epoch_size)
+    
+    plt.plot(epochs, loss_train, 'g', label='Training loss')
+    plt.plot(epochs, loss_val, 'b', label='Validation loss')
+    
+    plt.title('Training and Validation loss')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    
+    plt.legend()
+    plt.show()
+
+def plot_line(metric, title, xlabel):
+    plt.figure(figsize=(8,3))
+    plt.title(title, fontsize = 16)
+    plt.plot(metric)
+    plt.xlabel(xlabel, fontsize = 14)
+    plt.grid()
+    plt.legend(loc= "best")
+    plt.show()
+
+def scatter_plot(trueValues, predictions, title):
+  plt.figure(figsize=(8,3))
+  ax = plt.axes()
+  maxVal = max( max(trueValues), max(predictions) )
+
+  ax.scatter(x=predictions, y=trueValues)
+  ax.plot([0, 1, maxVal], [0, 1, maxVal], label="Ideal fit")
+  print('Maxval here is: ', maxVal)
+  plt.title(title, fontsize = 16)
+  plt.xlabel("Predictions", fontsize = 14)
+  plt.ylabel("Real", fontsize = 14)
+  plt.grid()
+  #url dataset
+URL = "../Datasets/processed/" + GRAIN_TYPE + ".csv"
+
+#read in excel format
+df = pd.read_csv(URL)
+#df = df[df['Variety'] == 'SOUTH DAKOTA']
+#df = df[(df['Density'] >= 0.72) & (df['Density'] <= 0.88)]
+
+print("From USDA: ", URL)
+
+
+df.head()
+# Convert to numpy array
+df_features = df[['Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+                    ]]
+
+df_targets = df[['M%']]
+# df_targets = df[['Density', 'M%']]
+
+dataset_x = df_features.to_numpy()
+dataset_y = df_targets.to_numpy()
+from sklearn.preprocessing import MinMaxScaler
+
+#Normalizing the data set
+scaler_input = MinMaxScaler()
+scaler_output = MinMaxScaler()
+
+# Normalize the entire dataset (input features)
+dataset_x_norm = scaler_input.fit_transform(dataset_x)  # Use transform, NOT fit_transform
+
+# Normalize the entire dataset (output targets)
+dataset_y_norm = scaler_output.fit_transform(dataset_y)  # Use transform, NOT fit_transform
+# Perform train-test split on RAW DATA
+X_train, X_test, y_train, y_test = train_test_split(dataset_x_norm, dataset_y_norm, 
+                                                    test_size=0.15
+                                                    ,random_state=42
+                                                    )
+from keras import layers, Sequential, regularizers
+
+# Define the model-building function
+def my_model():
+  my_model = Sequential([
+    
+    layers.Dense(109, input_shape=(6,), activation='relu',),
+    layers.Dense(109, activation='relu', ),
+    layers.Dense(109, activation='relu',),
+    layers.Dense(1, activation='linear')  # Output layer with 2 neurons for the two regression targets
+  ])
+
+  opt = tf.keras.optimizers.Adam(learning_rate=0.00091) # 0.0006 
+  my_model.compile(
+      optimizer = opt,
+      loss = 'mse',
+      metrics = ['accuracy']
+  )
+
+  return my_model
+
+plot_model(my_model(), show_shapes=True, show_layer_names=True)
+my_model().summary()
+from sklearn.model_selection import KFold
+import numpy as np
+from tensorflow.keras.callbacks import Callback
+class MaxAbsErrorCallback(Callback):
+    def __init__(self):  
+        self.max_abs_errors = np.zeros((K_FOLD_SPLITS, NUM_EPOCHS))  # Initialize array
+
+    def on_epoch_end(self, epoch, logs={}):
+        y_pred = self.model.predict(X_test) 
+        y_pred = scaler_output.inverse_transform(y_pred) 
+        y_true = scaler_output.inverse_transform(y_test) 
+
+        abs_errors = np.abs(y_true[:, 0] - y_pred[:, 0])
+        max_abs_error = np.max(abs_errors)
+
+        # Store errors in the pre-allocated Array
+        fold_index = cv.get_n_splits() - 1  # Get the current fold index
+        self.max_abs_errors[fold_index, epoch] = max_abs_error 
+        print(f"Epoch {epoch + 1}: Max Absolute Error = {max_abs_error:.4f}") 
+
+    def on_train_end(self, logs={}):  
+        epoch_averages = np.mean(self.max_abs_errors, axis=0)  # Average across folds
+        print(min(epoch_averages))
+        for epoch_idx, avg_error in enumerate(epoch_averages):
+            print(f"Epoch {epoch_idx + 1} Average Max Abs Error: {avg_error:.4f}")
+
+NUM_EPOCHS = 185# 180
+BATCH_SIZE = 10
+K_FOLD_SPLITS = 10
+
+
+# Define the cross-validation process to be used inside cross_val_Score evaluation
+cv = KFold(n_splits=K_FOLD_SPLITS)
+
+# Handling for accommodating multiple targets
+Y = y_train[:,0]
+
+X = X_train
+
+i = 0
+arr_loss = list()
+min_loss = 1000000
+best_model = None
+history = None
+history_best_model = None
+
+
+# Perform k-fold cross-validation
+for train_indices, test_indices in cv.split(X_train):
+  print('####################### Iteration  ', i, ' #######################')
+  trainX, testX = np.array(X[train_indices]), np.array(X[test_indices])
+  trainY = (Y[train_indices])
+  testY = (Y[test_indices])
+
+  model = my_model()
+  history = model.fit(trainX, trainY,
+            epochs=NUM_EPOCHS,
+            batch_size=BATCH_SIZE,
+            validation_data = (testX, testY),
+            callbacks=[MaxAbsErrorCallback()]  # Add the callback
+  )
+
+
+  #testing on validation set process
+  loss, rmse = model.evaluate(x = testX, y = testY, verbose=1)
+  
+  print(f"Loss = {loss}, rmse = {rmse}" )
+
+  if loss < min_loss:
+    best_model = model
+    history_best_model = history
+    min_loss = loss
+
+  arr_loss.append(loss)
+  print('Loss array: ', arr_loss)
+  i+=1
+
+# Saving the best model within the k folds
+best_model.save('Best models/target_2/single_models/density_kfold_dnn_single')
+import time
+
+start_time = time.time()
+Y_pred_normalized = best_model.predict(X_test)
+end_time = time.time()
+Y_pred_normalized_entire = best_model.predict(dataset_x_norm)
+# Calculate elapsed time in seconds
+elapsed_time = end_time - start_time
+print("Elapsed time:", round(elapsed_time, 3), "seconds")
+
+
+Y_pred = scaler_output.inverse_transform(Y_pred_normalized)
+Y_pred_entire = scaler_output.inverse_transform(Y_pred_normalized_entire)
+Y_actual = scaler_output.inverse_transform(y_test)
+Y_actual_entire = np.array(df_targets)
+# Moisture Content
+scatter_plot(trueValues=Y_actual[:,0], 
+             predictions=Y_pred[:,0], 
+             title="Moisture Content")
+a, b = np.polyfit(Y_pred[:, 0], Y_actual[:, 0], 1) # y = ax + b
+x_best_fit = np.arange(0, max(max(Y_pred[:,0]), max(Y_actual[:,0])), 1)
+plt.plot(x_best_fit, a*x_best_fit + b, c='red', label='Best fit')
+plt.legend()
+plt.savefig('../Poster/Results/obj_3_MC.svg', dpi=300,
+                bbox_inches='tight',
+                transparent=True)
+'''
+Now with this code I need you to implement bayesian optimization for hyperparameter tuning.
+I want to tune the number of layers, the number of neurons in each layer, activation functions, and learning rate,
+and epoch if that is normal. you must provide the complete code.

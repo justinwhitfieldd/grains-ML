@@ -155,3 +155,11 @@ Max Absolute Error:  0.40733703613281236
 train model for bulk density, 
 train for single output(bd) and for two output (m% and bd)
 Look into training classification model for grain type and variety
+        
+        Bulk density
+R^2: 0.9739
+Mean Squared Error:  0.0001129
+Mean Absolute Error:  0.008194
+Min Absolute Error:  0.00014189291000366033
+Max Absolute Error:  0.0395660192489623
+Best hyperparameters: {'activation': 'relu', 'epochs': 200, 'learning_rate': 0.0025127745346078647, 'num_layers': 7, 'units_per_layer': 300}
