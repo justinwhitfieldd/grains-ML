@@ -1,0 +1,189 @@
+Codebase/1-1_dnn_kcv_normalize_after_split_usda_data.ipynb
+	- file where the R2 and rmse values for corn were generated for the presentation
+	
+Codebase/2_dnn_separate_output_kcv_usda_data .ipynb
+	- very cool graph of model generated here
+		
+ 	
+add new metric 
+standard error performance
+samir trabelsi
+
+
+
+Values when using entire dataset - LR 0.00591 EPOCH 99
+R^2: 0.9804
+Mean Squared Error:  0.1435
+Mean Absolute Error:  0.2779
+Min Absolute Error:  0.0001441
+Max Absolute Error:  1.588
+
+Values when using entire dataset - LR 0.00591 EPOCH 99 - final layer sigmoid
+R^2: 0.9827
+Mean Squared Error:  0.1127
+Mean Absolute Error:  0.188
+Min Absolute Error:  0.0005375
+Max Absolute Error:  2.079
+
+
+new wheat dataset containing type column and phase/attn LR = 0.00062 EPOCH = 180
+R^2: 0.9927
+Mean Squared Error:  0.09561
+Mean Absolute Error:  0.2382
+Min Absolute Error:  0.005610275268555398
+Max Absolute Error:  1.2028444671630858
+
+South Dakota wheat dataset with Type column, 180 epoch LR: 0.0006
+R^2: 0.9864
+Mean Squared Error:  0.1038
+Mean Absolute Error:  0.2416
+Min Absolute Error:  0.02640426635742088
+Max Absolute Error:  0.7429405212402358
+
+
+Run support vector machine on south dakota, as well as random forest. Add kfold to random forest - Done
+
+run DLL model on entire wheat dataset as well to compare with random forest and support vector machine models
+
+mention k fold validation in paper, add the ratio of dataset used and number of k folds. Mention that metrics are the average values. Improve captions on figures. add that everything is predicted towards moisture content.
+
+R^2: 0.9886
+Mean Squared Error:  0.1487
+Mean Absolute Error:  0.292
+Min Absolute Error:  0.004633255004883097
+Max Absolute Error:  1.3250600051879875
+190 epoch, LR: 0.0006105, 3 dense 49 neurono layers, sigmoid,'Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+
+R^2: 0.9914
+Mean Squared Error:  0.1127
+Mean Absolute Error:  0.2593
+Min Absolute Error:  0.000991172790527628
+Max Absolute Error:  1.1374970626831047
+180 epoch, LR: 0.0006105, 3 dense 49 neurono layers, sigmoid,'Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+
+R^2: 0.9884
+Mean Squared Error:  0.1515
+Mean Absolute Error:  0.3
+Min Absolute Error:  0.001513137817383381
+Max Absolute Error:  1.0158342361450199
+Epoch: 190, LR: 0.0006105, 3 dense 36 layers, sigmoid
+df_features = df[['Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+                    ]]
+R^2: 0.9905
+Mean Squared Error:  0.1246
+Mean Absolute Error:  0.2859
+Min Absolute Error:  0.0018354797363286934
+Max Absolute Error:  0.8799495697021484
+Epoch: 185, LR: 0.0006105, 3 dense 36 layers, sigmoid
+df_features = df[['Freq', 
+                    'd(cm)', 
+                   # 'Attn', 
+                    'Phase_Corr', 
+                    'Permittivity_real', 
+                    'Permittivity_imaginary',
+                    'Type',
+                    ]]
+
+New best hyperparameters: {'learning_rate': 0.00015, 'batch_size': 8, 'neurons': 89, 'activation': 'relu', 'epochs': 170, 'loss': 0.0008250479004345834}
+New best hyperparameters: {'learning_rate': 0.00025, 'batch_size': 8, 'neurons': 89, 'activation': 'relu', 'epochs': 165, 'loss': 0.0005766170797869563}
+2:29 normal
+
+
+single target dnn with multi threading, random num 39
+R^2: 0.9976
+Mean Squared Error:  0.03436
+Mean Absolute Error:  0.1494
+Min Absolute Error:  0.000415802001953125
+Max Absolute Error:  0.45629322052001875
+
+Max Abs ERror:  0.9091627655029292
+{'learning_rate': 0.0009, 'batch_size': 8, 'neurons': 89, 'activation': None, 'epochs': 170, 'loss': 5.551211870624684e-05}
+
+R^2: 0.9975
+Mean Squared Error:  0.03545
+Mean Absolute Error:  0.1424
+Min Absolute Error:  0.000263214111328125
+Max Absolute Error:  0.7668286514282219
+R^2: 0.9949
+Mean Squared Error:  0.06634
+Mean Absolute Error:  0.1895
+Min Absolute Error:  0.0016549682617181816
+Max Absolute Error:  0.8069027709960945
+
+R^2: 0.9960
+Mean Squared Error:  0.05221
+Mean Absolute Error:  0.1731
+Min Absolute Error:  0.00021518707275447468
+Max Absolute Error:  0.6590901947021486
+10 batch
+89 neuron
+170 epoch
+0.00091 LR
+==========================================================
+(Entire wheat dataset, single target)
+epoch:190
+LR: 0.00091
+model: layers.Dense(109, input_shape=(6,), activation='relu',),
+    layers.Dense(109, activation='relu', ),
+    layers.Dense(109, activation='relu',),
+    layers.Dense(1, activation='linear')
+R^2: 0.9993
+Mean Squared Error:  0.008625
+Mean Absolute Error:  0.06327
+Min Absolute Error:  0.0005446624755869323
+Max Absolute Error:  0.40733703613281236
+====================================
+
+train model for bulk density, 
+train for single output(bd) and for two output (m% and bd)
+Look into training classification model for grain type and variety
+        
+        Bulk density
+R^2: 0.9739
+Mean Squared Error:  0.0001129
+Mean Absolute Error:  0.008194
+Min Absolute Error:  0.00014189291000366033
+Max Absolute Error:  0.0395660192489623
+Best hyperparameters: {'activation': 'relu', 'epochs': 200, 'learning_rate': 0.0025127745346078647, 'num_layers': 7, 'units_per_layer': 300}
+
+
+R^2: 0.9709
+Mean Squared Error:  0.000126
+Mean Absolute Error:  0.009132
+Min Absolute Error:  0.0003164817810059617
+Max Absolute Error:  0.02897950019836415
+Best hyperparameters: {'activation': 'relu', 'epochs': 195, 'learning_rate': 0.002898773627262781, 'num_layers': 7, 'units_per_layer': 400}
+
+R^2: 0.9939
+Mean Squared Error:  2.77e-05
+Mean Absolute Error:  0.003728
+Min Absolute Error:  1.0248184204586508e-06
+Max Absolute Error:  0.027908093261718725
+layers.Dense(450, input_shape=(6,), activation='relu',),
+    layers.Dense(450, activation='relu', ),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(1, activation='linear')  # Output layer with 2 neurons for the two regression targets
+  ])
+  learning_rate=0.002898773627262781
+  NUM_EPOCHS = 220
