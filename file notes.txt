@@ -227,3 +227,74 @@ Recall Class 3: 1.0000
 Precision Class 4: 0.8571
 Recall Class 4: 0.8571
 epochs=800, batch_size=32, learning_rate=0.0002
+
+Accuracy: 0.9167
+Precision Class 0: 0.8400
+Recall Class 0: 0.8750
+Precision Class 1: 1.0000
+Recall Class 1: 0.8333
+Precision Class 2: 0.8846
+Recall Class 2: 0.9583
+Precision Class 3: 1.0000
+Recall Class 3: 1.0000
+Precision Class 4: 0.9167
+Recall Class 4: 0.9167
+epochs=900, batch_size=32)learning_rate=0.0002
+
+here i switched from 128,256,256,5 to 256,256,256,5
+Accuracy: 0.9250
+Precision Class 0: 0.8400
+Recall Class 0: 0.8750
+Precision Class 1: 1.0000
+Recall Class 1: 0.8333
+Precision Class 2: 0.8846
+Recall Class 2: 0.9583
+Precision Class 3: 1.0000
+Recall Class 3: 1.0000
+Precision Class 4: 0.9200
+Recall Class 4: 0.9583
+learning_rate=0.0003 epochs=1000, batch_size=8
+
+Loss: 0.3000
+Accuracy: 0.9417
+Precision Class 0: 0.9130
+Recall Class 0: 0.8750
+Precision Class 1: 1.0000
+Recall Class 1: 0.9167
+Precision Class 2: 0.8846
+Recall Class 2: 0.9583
+Precision Class 3: 1.0000
+Recall Class 3: 1.0000
+Precision Class 4: 0.9200
+Recall Class 4: 0.9583
+epochs=1100, batch_size=8 learning_rate=0.0003
+
+
+Bulk density AND moisture content
+ my_model = Sequential([
+    
+    layers.Dense(450, input_shape=(6,), activation='relu',),
+    layers.Dense(450, activation='relu', ),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(450, activation='relu',),
+    layers.Dense(2, activation='linear')  # Output layer with 2 neurons for the two regression targets
+  ])
+
+  opt = tf.keras.optimizers.Adam(learning_rate=0.002898773627262781) # 0.0006 
+  NUM_EPOCHS = 300# 180
+BATCH_SIZE = 10
+K_FOLD_SPLITS = 10
+MC
+R^2: 0.9955
+Mean Squared Error:  0.06389
+Mean Absolute Error:  0.1811
+Min Absolute Error:  0.00021045684814424703
+Max Absolute Error:  0.8301896286010741
+BD
+R^2: 0.9365
+Mean Squared Error:  0.0003015
+Mean Absolute Error:  0.01315
+Min Absolute Error:  0.00018147468566898084
+Max Absolute Error:  0.04639030332565308
