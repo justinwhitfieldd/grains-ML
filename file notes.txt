@@ -187,3 +187,43 @@ layers.Dense(450, input_shape=(6,), activation='relu',),
   ])
   learning_rate=0.002898773627262781
   NUM_EPOCHS = 220
+
+  classification
+  Loss: 0.8480
+Accuracy: 0.7851
+Precision Class 0: 0.7200
+Recall Class 0: 0.6429
+Precision Class 1: 0.8571
+Recall Class 1: 0.8276
+Precision Class 2: 0.8400
+Recall Class 2: 0.7778
+Precision Class 3: 0.8462
+Recall Class 3: 0.9565
+Precision Class 4: 0.5882
+Recall Class 4: 0.7143
+
+Accuracy: 0.8778
+Precision Class 0: 0.8750
+Recall Class 0: 0.9130
+Precision Class 1: 0.7143
+Recall Class 1: 0.8333
+Precision Class 2: 0.8571
+Recall Class 2: 0.6667
+Precision Class 3: 1.0000
+Recall Class 3: 1.0000
+Precision Class 4: 0.9048
+Recall Class 4: 0.9048
+epochs=400, batch_size=32 learning_rate=0.0003
+
+Accuracy: 0.8889
+Precision Class 0: 0.9130
+Recall Class 0: 0.9130
+Precision Class 1: 0.8333
+Recall Class 1: 0.8333
+Precision Class 2: 0.8235
+Recall Class 2: 0.7778
+Precision Class 3: 1.0000
+Recall Class 3: 1.0000
+Precision Class 4: 0.8571
+Recall Class 4: 0.8571
+epochs=800, batch_size=32, learning_rate=0.0002
