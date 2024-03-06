@@ -297,6 +297,20 @@ Precision Class 4: 0.9200
 Recall Class 4: 0.9583
 learning_rate=0.00033 epochs=1100, batch_size=8
 
+=================================================================
+Class  0 | Precision: 0.955 | Recall: 0.875 | Accuracy: 0.875
+Class  1 | Precision: 1.000 | Recall: 1.000 | Accuracy: 1.000
+Class  2 | Precision: 0.920 | Recall: 0.958 | Accuracy: 0.958
+Class  3 | Precision: 1.000 | Recall: 1.000 | Accuracy: 1.000
+Class  4 | Precision: 0.920 | Recall: 0.958 | Accuracy: 0.958
+
+Avg Precision: 0.959 | Avg Recall: 0.958 | Avg Accuracy: 0.958
+HYPERPARAMS: LR: 0.00033  EPOCH: 1100  BATCH: 8
+
+even dataset split between classes
+=================================================================
+
+
 Bulk density AND moisture content
  my_model = Sequential([
     
