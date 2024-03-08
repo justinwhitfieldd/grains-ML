@@ -25,3 +25,30 @@ Wheat   | Precision: 0.842 | Recall: 0.877 | Accuracy: 0.877
 Avg Precision: 0.930 | Avg Recall: 0.929 | Avg Accuracy: 0.929
 HYPERPARAMS: LR: 0.01628784588390105  EPOCH: 500.0  BATCH: 128
 =================================================================
+Class Name  Train  Test
+    Barley    249    73
+      Corn    249    73
+      Oats    249    73
+   Sorghum    248    74
+     Wheat    249    73
+
+=================================================================
+       Actual
+      _____________________
+pred  |  0   1   2   3   4  
+  0   | 67 | 0 | 0 | 0 | 8 |
+  1   |  0 |73 | 0 | 0 | 1 |
+  2   |  0 | 0 |73 | 0 | 0 |
+  3   |  1 | 0 | 0 |74 | 1 |
+  4   |  5 | 0 | 0 | 0 |63 |
+
+=================================================================
+Barley  | Precision: 0.893 | Recall: 0.918 | Accuracy: 0.918
+Corn    | Precision: 0.986 | Recall: 0.986 | Accuracy: 1.000
+Oats    | Precision: 1.000 | Recall: 1.000 | Accuracy: 1.000
+Sorghum | Precision: 0.974 | Recall: 1.000 | Accuracy: 1.000
+Wheat   | Precision: 0.925 | Recall: 0.849 | Accuracy: 0.863
+
+Avg Precision: 0.956 | Avg Recall: 0.951 | Avg Accuracy: 0.956
+HYPERPARAMS: LR: 0.006738550781435328  EPOCH: 700.0  BATCH: 16
+=================================================================
