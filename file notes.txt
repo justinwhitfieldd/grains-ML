@@ -150,6 +150,19 @@ Mean Squared Error:  0.008625
 Mean Absolute Error:  0.06327
 Min Absolute Error:  0.0005446624755869323
 Max Absolute Error:  0.40733703613281236
+
+learning_rate=0.00091
+NUM_EPOCHS = 190
+    layers.Dense(128, input_shape=(6,), activation='relu',),
+    layers.Dense(128, activation='relu', ),
+    layers.Dense(128, activation='relu',),
+    layers.Dense(1, activation='linear')  # Output layer with 2 neurons for the two regression targets
+  ])
+R^2: 0.9994
+Mean Squared Error:  0.007797
+Mean Absolute Error:  0.0615
+Min Absolute Error:  0.0003349685668947444
+Max Absolute Error:  0.3897646331787108
 ====================================
 
 train model for bulk density, 
@@ -183,12 +196,13 @@ layers.Dense(450, input_shape=(6,), activation='relu',),
     layers.Dense(450, activation='relu',),
     layers.Dense(450, activation='relu',),
     layers.Dense(450, activation='relu',),
-    layers.Dense(1, activation='linear')  # Output layer with 2 neurons for the two regression targets
+    layers.Dense(1, activation='linear') 
   ])
   learning_rate=0.002898773627262781
   NUM_EPOCHS = 220
 
   classification
+  ======================================================================================
   Loss: 0.8480
 Accuracy: 0.7851
 Precision Class 0: 0.7200
