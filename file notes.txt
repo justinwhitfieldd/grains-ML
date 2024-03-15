@@ -201,6 +201,23 @@ layers.Dense(450, input_shape=(6,), activation='relu',),
   learning_rate=0.002898773627262781
   NUM_EPOCHS = 220
 
+relu on hidden layers, sigmoid on output layer
+{'batch_size': 8, 'epochs': 210, 'learning_rate': 0.0011007913080333014, 'num_layers': 5, 'units_per_layer': 180}
+R^2: 0.9966
+Mean Squared Error:  1.623e-05
+Mean Absolute Error:  0.002426
+Min Absolute Error:  1.208839416511065e-05
+Max Absolute Error:  0.019702413749694725
+
+
+Best hyperparameters: {'batch_size': 10, 'epochs': 225, 'learning_rate': 0.0005541384023326294, 'num_layers': 6, 'units_per_layer': 450}
+R^2: 0.9967
+Mean Squared Error:  1.579e-05
+Mean Absolute Error:  0.002604
+Min Absolute Error:  3.01952362058433e-06
+Max Absolute Error:  0.015751460266113182
+
+
   classification
   ======================================================================================
   Loss: 0.8480
