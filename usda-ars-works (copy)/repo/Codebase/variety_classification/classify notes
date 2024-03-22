@@ -25,7 +25,7 @@ Wheat   | Precision: 0.842 | Recall: 0.877 | Accuracy: 0.877
 Avg Precision: 0.930 | Avg Recall: 0.929 | Avg Accuracy: 0.929
 HYPERPARAMS: LR: 0.01628784588390105  EPOCH: 500.0  BATCH: 128
 =================================================================
-
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 Class Name  Train  Test
     Barley    249    73
       Corn    249    73
@@ -52,7 +52,7 @@ Wheat   | Precision: 0.925 | Recall: 0.849 | Accuracy: 0.863
 
 Avg Precision: 0.956 | Avg Recall: 0.951 | Avg Accuracy: 0.956
 HYPERPARAMS: LR: 0.006738550781435328  EPOCH: 700.0  BATCH: 16
-=================================================================
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 Class Name  Train  Test
     Barley    293    73
       Corn   1060    73
@@ -80,7 +80,7 @@ Wheat   | Precision: 0.779 | Recall: 0.822 | Accuracy: 0.822
 Avg Precision: 0.887 | Avg Recall: 0.885 | Avg Accuracy: 0.885
 HYPERPARAMS: LR: 0.00033  EPOCH: 1100  BATCH: 8
 
-
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 Class Name  Train  Test
     Barley    293    73
       Corn   1060    73
@@ -108,3 +108,32 @@ Wheat   | Precision: 0.833 | Recall: 0.890 | Accuracy: 0.904
 Avg Precision: 0.911 | Avg Recall: 0.901 | Avg Accuracy: 0.904
 HYPERPARAMS: LR: 0.006738550781435328  EPOCH: 700  BATCH: 16
 =================================================================
+
+BINARY CLASSIFICATION: WHEAT
+=================================================================
+Precision: 0.857
+Recall: 0.947
+Accuracy: 0.958
+HYPERPARAMS: LR: 0.00033  EPOCH: 1100  BATCH: 8
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+Class Name  Train  Test
+    Barley    293    73
+      Corn    293    73
+      Oats    293    73
+   Sorghum    292    74
+     Wheat    293    73
+LEARNING_RATE = 0.00033 
+EPOCH = 1000
+BATCH_SIZE = 8
+'Freq', 
+'d(cm)', 
+'Attn', 
+'Phase_Corr', 
+'Permittivity_real', 
+'Permittivity_imaginary',
+
+Barley:
+Precision: 0.844
+Recall: 0.890
+Accuracy: 0.945
+Wheat:
